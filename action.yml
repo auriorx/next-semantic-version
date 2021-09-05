@@ -24,7 +24,13 @@ runs:
         echo ${{ steps.get-latest-tag.outputs.tag }}
       shell: bash
     - name: Bump Semantic Version
+      id: bump-semantic-version
       uses: jessicalostinspace/bump-semantic-version-action@v1.0.1
       with:
         semantic-version: ${{ steps.get-latest-tag.outputs.tag }}
         version-type: '${{inputs.increment-type}}'
+    - name: Echo
+      run: |
+        echo ${{ steps.bump-semantic-version.outputs.bumped-semantic-version }}
+        
+        
