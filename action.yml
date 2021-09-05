@@ -14,8 +14,4 @@ runs:
     - uses: actions/checkout@v2
     - uses: actions-ecosystem/action-get-latest-tag@v1
       id: get-latest-tag
-    - uses: actions-ecosystem/action-bump-semver@v1
-      id: bump-semver
-      with:
-        current_version: ${{ steps.get-latest-tag.outputs.tag }}
-        level: ${{inputs.increment-type}}
+    - run: echo "tag: ${{ steps.get-latest-tag.outputs.tag }}"    
