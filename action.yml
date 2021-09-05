@@ -18,9 +18,8 @@ runs:
     - uses: actions/checkout@v2
       with: 
         ref: ${{inputs.branch}}
-    - name: Get semantic version
-      uses: valadas/get-release-branch-version@v1
-      id: current-semantic-version
-    - name: Dump the version info
-      run: "echo major: ${{ steps.current-semantic-version.major }} minor: ${{ steps.current-semantic-version.minor }} patch: ${{ steps.current-semantic-version.patch }}"
-      shell: bash
+    - name: Get release
+        id: get_release
+        uses: bruceadams/get-release@v1.2.3
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
