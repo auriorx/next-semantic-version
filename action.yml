@@ -10,7 +10,7 @@ inputs:
 outputs: 
   next-semantic-version:
     description: The max version code in the play store for the app +1
-    value: ${{ steps.version_code_increment.outputs.VALUE }}
+    value: ${{ steps.bump-semantic-version.outputs.bumped-semantic-version }}
 runs:
   using: "composite"
   steps:
