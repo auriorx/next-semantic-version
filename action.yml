@@ -32,5 +32,6 @@ runs:
     - name: Echo
       run: |
         echo ${{ steps.bump-semantic-version.outputs.bumped-semantic-version }}
+      shell: bash
         
         
