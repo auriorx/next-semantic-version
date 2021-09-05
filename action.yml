@@ -21,11 +21,11 @@ runs:
     - name: Get semantic version
       uses: valadas/get-release-branch-version@v1
         id: current-semantic-version
-      - name: Dump the version info
-        env:
-          MAJOR: ${{ steps.current-semantic-version.major }}
-          MINOR: ${{ steps.current-semantic-version.minor }}
-          PATCH: ${{ steps.current-semantic-version.patch }}
-          MANIFEST_SAFE_VERSION_STRING: ${{ steps.current-semantic-version.manifestSafeVersionString }}
-        run: "echo major: $MAJOR minor: $MINOR patch: $PATCH manifestSafeVersionString: $MANIFEST_SAFE_VERSION_STRING"    
-        shell: bash
+    - name: Dump the version info
+      env:
+        MAJOR: ${{ steps.current-semantic-version.major }}
+        MINOR: ${{ steps.current-semantic-version.minor }}
+        PATCH: ${{ steps.current-semantic-version.patch }}
+        MANIFEST_SAFE_VERSION_STRING: ${{ steps.current-semantic-version.manifestSafeVersionString }}
+      run: "echo major: $MAJOR minor: $MINOR patch: $PATCH manifestSafeVersionString: $MANIFEST_SAFE_VERSION_STRING"    
+      shell: bash
