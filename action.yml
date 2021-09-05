@@ -20,7 +20,7 @@ runs:
         ref: ${{inputs.branch}}
     - name: Get semantic version
       uses: valadas/get-release-branch-version@v1
-        id: current-semantic-version
+      id: current-semantic-version
     - name: Dump the version info
       run: "echo major: ${{ steps.current-semantic-version.major }} minor: ${{ steps.current-semantic-version.minor }} patch: ${{ steps.current-semantic-version.patch }}  
       shell: bash
