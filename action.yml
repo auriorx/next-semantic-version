@@ -25,7 +25,6 @@ runs:
       shell: bash
     - name: Bump Semantic Version
       uses: jessicalostinspace/bump-semantic-version-action@v1.0.1
-        with:
-          semantic-version: ${{ steps.get-latest-tag.outputs.tag }}
-          version-type: '${{inputs.increment-type}}'
-
+      with:
+        semantic-version: ${{ steps.get-latest-tag.outputs.tag }}
+        version-type: '${{inputs.increment-type}}'
