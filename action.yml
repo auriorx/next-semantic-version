@@ -1,6 +1,9 @@
 name: 'Next semantic version'
 description: Calculate the next semantic version for a GitHub release
 inputs:
+  branch: 
+    description: The branch you want to pull the latest release version from
+    required: false
   increment-type: 
     description: Select which version to increment (major, minor or patch)
     required: false
@@ -12,6 +15,8 @@ runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2
+      with: 
+        ref: ${{inputs.branch}}
     - uses: actions-ecosystem/action-get-latest-tag@v1
       id: get-latest-tag
     - name: Echo
