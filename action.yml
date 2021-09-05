@@ -1,9 +1,6 @@
 name: 'Next semantic version'
 description: Calculate the next semantic version for a GitHub release
 inputs:
-  branch: 
-    description: The branch you want to pull the latest release version from
-    required: false
   increment-type: 
     description: Select which version to increment (major, minor or patch)
     required: false
@@ -11,15 +8,10 @@ outputs:
   next-semantic-version:
     description: The max version code in the play store for the app +1
     value: ${{ steps.version_code_increment.outputs.VALUE }}
-
 runs:
   using: "composite"
   steps:
     - uses: actions/checkout@v2
-      with: 
-        ref: ${{inputs.branch}}
-    - uses: actions-ecosystem/action-release-label@v1
-      id: release-label
     - uses: actions-ecosystem/action-get-latest-tag@v1
       id: get-latest-tag
     - uses: actions-ecosystem/action-bump-semver@v1
