@@ -5,7 +5,7 @@ inputs:
     description: The branch you want to pull the latest release version from
     required: false
   increment-type: 
-    description: Select which version to increment (major, minor or patch)
+    description: Select which version to increment (MAJOR, MINOR or PATCH)
     required: false
 outputs: 
   next-semantic-version:
@@ -23,3 +23,9 @@ runs:
       run: |
         echo ${{ steps.get-latest-tag.outputs.tag }}
       shell: bash
+    - name: Bump Semantic Version
+      uses: jessicalostinspace/bump-semantic-version-action@v1.0.1
+        with:
+          semantic-version: ${{ steps.get-latest-tag.outputs.tag }}
+          version-type: '${{inputs.increment-type}}'
+
